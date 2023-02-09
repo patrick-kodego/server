@@ -133,7 +133,7 @@ const runApp = async ()=>{
     try {
         // await sequelize.authenticate();
         console.log('Connection has been established successfully.');
-        app.listen(80) // run app with this given port
+        app.listen(3000) // run app with this given port
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
