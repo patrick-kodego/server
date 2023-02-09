@@ -47,7 +47,7 @@ app.post('/api/v2/login', function (
     request, 
     response
 ) {
-    let retVal = {success: false};
+    let retVal = {success: false, data: parsedData};
     console.log('req: ', request.body)
 
     // User.findOne({
@@ -89,7 +89,7 @@ app.post('/api/v2/register', function (
     request, 
     response
 ) {
-    let retVal = {success: false}; 
+    let retVal = {success: false, data: parsedData};
     console.log('req: ', request.body)
     // User.findOne({
     //     where: {
@@ -133,7 +133,7 @@ const runApp = async ()=>{
     try {
         // await sequelize.authenticate();
         console.log('Connection has been established successfully.');
-        app.listen(3005) // run app with this given port
+        app.listen(80) // run app with this given port
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
