@@ -196,9 +196,16 @@ app.use(passport.session());
 app.get('/auth/github',
     passport.authenticate('github', { scope: [ 'user:email' ] }),
     function(req, res){
+    res.send({success: true})
     });
 
 app.get('/auth/github/callback',
+    passport.authenticate('github', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/');
+    });
+
+app.get('/',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         res.redirect('/');
